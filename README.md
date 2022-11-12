@@ -102,13 +102,15 @@ MAPBOX_DOWNLOADS_TOKEN=sk.XXXXXXXXXXXXXXX
       // optional, default: en
       language: 'es',
       // if we enable this option we can see alternative routes when starting the navigation map ONLY ANDROID
-      // optional, default: false
+      // optional, default: false 
       alternativeRoute: true,
       // the style or theme with which the navigation map will be loaded
-      // optional, default: streets, others: dark, light, traffic_day, traffic_night, satellite, satellite_streets, outdoors
+      // optional ANDROID, default: streets, others: dark, light, traffic_day, traffic_night, satellite, satellite_streets, outdoors
+      // optional IOS, default: streets, others: dark, light
       style: 'traffic_night',
       // refers to the navigation mode, the route and time will be calculated depending on this
-      // optional, default: driving, others: walking, cycling
+      // optional ANDROID, default: driving, others: walking, cycling 
+      // optional IOS, default: drivingWithTraffic, others: driving, walking, cycling 
       profile: '',
     );
     // we save the options and go on to show the map view
