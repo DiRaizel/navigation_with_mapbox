@@ -1,6 +1,6 @@
 name: navigation_with_mapbox
 description: Add Turn By Turn Navigation to Your Flutter Application Using MapBox.
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/DiRaizel/navigation_with_mapbox
 
 environment:
