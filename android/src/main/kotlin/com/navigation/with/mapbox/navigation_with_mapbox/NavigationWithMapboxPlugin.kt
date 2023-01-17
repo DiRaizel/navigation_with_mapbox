@@ -36,37 +36,39 @@ class NavigationWithMapboxPlugin: FlutterPlugin, MethodCallHandler, ActivityAwar
     // start the native view state listener
     val statusView = EventChannel(flutterPluginBinding.binaryMessenger, "mapboxView/events")
     statusView.setStreamHandler(StatusView())
-
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "startNavigation") {
-      // we clean the points of origin and destination to save the new ones that they send us from the dart
-      wayPoints.clear()
-      // We store the arguments sent to us by the method in a map variable
-      val arguments = call.arguments as? Map<*, *>
-      // we store the arguments in their individual variables
-      val point = arguments?.get("origin") as HashMap<*, *>
-      val latitude = point["Latitude"] as Double
-      val longitude = point["Longitude"] as Double
-      wayPoints.add(Point.fromLngLat(longitude, latitude))
-      val pointD = arguments["destination"] as HashMap<*, *>
-      val latitudeD = pointD["Latitude"] as Double
-      val longitudeD = pointD["Longitude"] as Double
-      wayPoints.add(Point.fromLngLat(longitudeD, latitudeD))
-      val simulateR = arguments["simulateRoute"] as Boolean
-      val controlTap = arguments["setDestinationWithLongTap"] as Boolean
-      val msg = arguments["msg"] as String
-      val profile = arguments["profile"] as String
-      val style = arguments["style"] as String
-      val voiceUni = arguments["voiceUnits"] as String
-      val language = arguments["language"] as String
-      val alternativeRoute = arguments["alternativeRoute"] as Boolean
-      // we send the received arguments to the navigation map initializer
-      currentActivity?.let { Launcher.startNavigation(it, wayPoints, msg, profile, style, voiceUni,
-        language, alternativeRoute, simulateR, controlTap) }
-    } else {
-      result.notImplemented()
+    when (call.method) {
+      "startNavigation" -> {
+        // we clean the points of origin and destination to save the new ones that they send us from the dart
+        wayPoints.clear()
+        // We store the arguments sent to us by the method in a map variable
+        val arguments = call.arguments as? Map<*, *>
+        // we store the arguments in their individual variables
+        val point = arguments?.get("origin") as HashMap<*, *>
+        val latitude = point["Latitude"] as Double
+        val longitude = point["Longitude"] as Double
+        wayPoints.add(Point.fromLngLat(longitude, latitude))
+        val pointD = arguments["destination"] as HashMap<*, *>
+        val latitudeD = pointD["Latitude"] as Double
+        val longitudeD = pointD["Longitude"] as Double
+        wayPoints.add(Point.fromLngLat(longitudeD, latitudeD))
+        val simulateR = arguments["simulateRoute"] as Boolean
+        val controlTap = arguments["setDestinationWithLongTap"] as Boolean
+        val msg = arguments["msg"] as String
+        val profile = arguments["profile"] as String
+        val style = arguments["style"] as String
+        val voiceUni = arguments["voiceUnits"] as String
+        val language = arguments["language"] as String
+        val alternativeRoute = arguments["alternativeRoute"] as Boolean
+        // we send the received arguments to the navigation map initializer
+        currentActivity?.let { Launcher.startNavigation(it, wayPoints, msg, profile, style, voiceUni,
+          language, alternativeRoute, simulateR, controlTap) }
+      }
+      else -> {
+        result.notImplemented()
+      }
     }
   }
 
