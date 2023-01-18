@@ -63,7 +63,7 @@ MAPBOX_DOWNLOADS_TOKEN=sk.xxxxx
 
 </details>
 
-## ANDRIOD
+## ANDROID
 
 ```dart
 
