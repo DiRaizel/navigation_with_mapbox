@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'navigation_with_mapbox'
-  s.version          = '0.0.6'
+  s.version          = '0.0.7'
   s.summary          = 'Add Turn By Turn Navigation to Your Flutter Application Using MapBox. '
   s.description      = <<-DESC
   Add Turn By Turn Navigation to Your Flutter Application Using MapBox. 

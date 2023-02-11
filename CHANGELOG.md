@@ -1,3 +1,7 @@
+## 0.0.7
+
+- Fix mapbox navigation version for android.
+
 ## 0.0.6
 
 - Updated the native navigation code in android.
