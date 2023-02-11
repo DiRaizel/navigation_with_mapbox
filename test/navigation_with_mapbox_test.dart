@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:navigation_with_mapbox/navigation_with_mapbox.dart';
-import 'package:navigation_with_mapbox/navigation_with_mapbox_init.dart';
 import 'package:navigation_with_mapbox/navigation_with_mapbox_platform_interface.dart';
 import 'package:navigation_with_mapbox/navigation_with_mapbox_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
