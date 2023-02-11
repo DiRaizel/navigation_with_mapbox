@@ -87,6 +87,8 @@ MAPBOX_DOWNLOADS_TOKEN=sk.xxxxx
         // the style or theme with which the navigation map will be loaded
         // optional, default: streets, others: dark, light, traffic_day, traffic_night, satellite, satellite_streets, outdoors
         style: 'traffic_night',
+        // language in which the navigation assistant will speak to us
+        // optional, default: en
         language: 'es',
         // refers to the navigation mode, the route and time will be calculated depending on this
         // optional, default: driving, others: walking, cycling
